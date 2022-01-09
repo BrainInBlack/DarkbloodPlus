@@ -1,0 +1,78 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "session",
+          "style": "plain",
+          "foreground": "white",
+          "properties": {
+            "user_info_separator": "",
+            "display_host": false,
+            "prefix": "<red>┏[</>",
+            "postfix": "<red>]</>"
+          }
+        },
+        {
+          "type": "poshgit",
+          "style": "plain",
+          "foreground": "lightGreen",
+          "properties": {
+            "prefix": "<red>[</>",
+            "postfix": "<red>]</>"
+          }
+        },
+        {
+          "type": "python",
+          "style": "plain",
+          "foreground": "lightGreen",
+          "powerline_symbol": "",
+          "properties": {
+            "prefix": "<red>[</>",
+            "postfix": "<red>]</>",
+            "display_mode": "environment"
+          }
+        },
+        {
+          "type": "root",
+          "style": "plain",
+          "foreground": "white",
+          "properties": {
+            "prefix": "<red>[</>",
+            "postfix": "<red>]</>"
+          }
+        },
+        {
+          "type": "exit",
+          "style": "plain",
+          "foreground": "white",
+          "properties": {
+            "prefix": "<red>[x</>",
+            "postfix": "<red>]</>"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "lightWhite",
+          "properties": {
+            "style": "full",
+            "prefix": "<red>┖[</>",
+            "postfix": "<red>]></>"
+          }
+        }
+      ]
+    }
+  ],
+  "final_space": true
+}
