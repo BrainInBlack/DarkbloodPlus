@@ -1,78 +1,66 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "console_title_template": "{{.HostName}} {{.PWD}}",
   "blocks": [
     {
-      "type": "prompt",
       "alignment": "left",
       "segments": [
         {
-          "type": "session",
-          "style": "plain",
           "foreground": "white",
           "properties": {
-            "user_info_separator": "",
-            "display_host": false,
-            "prefix": "<red>┏[</>",
-            "postfix": "<red>]</>"
-          }
+            "display_host": false
+          },
+          "style": "plain",
+          "template": "<red>\u250f[</>{{ if .SSHSession }}\uf817 {{ end }}{{ .UserName }}<red>]</>",
+          "type": "session"
         },
         {
-          "type": "poshgit",
-          "style": "plain",
           "foreground": "lightGreen",
-          "properties": {
-            "prefix": "<red>[</>",
-            "postfix": "<red>]</>"
-          }
+          "style": "plain",
+          "template": "<red>[</>{{ .HEAD }}<red>]</>",
+          "type": "git"
         },
         {
-          "type": "python",
-          "style": "plain",
           "foreground": "lightGreen",
-          "powerline_symbol": "",
           "properties": {
-            "prefix": "<red>[</>",
-            "postfix": "<red>]</>",
             "display_mode": "environment"
-          }
+          },
+          "style": "plain",
+          "template": "<red>[</>{{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}<red>]</>",
+          "type": "python"
         },
         {
-          "type": "root",
-          "style": "plain",
           "foreground": "white",
-          "properties": {
-            "prefix": "<red>[</>",
-            "postfix": "<red>]</>"
-          }
+          "style": "plain",
+          "template": "<red>[</>\uf0e7<red>]</>",
+          "type": "root"
         },
         {
-          "type": "exit",
-          "style": "plain",
           "foreground": "white",
-          "properties": {
-            "prefix": "<red>[x</>",
-            "postfix": "<red>]</>"
-          }
+          "style": "plain",
+          "template": "<red>[</>{{ if gt .Code 0 }}\uf00d {{ .Meaning }}{{ else }}\uf42e{{ end }}<red>]</>",
+          "type": "exit"
         }
-      ]
+      ],
+      "type": "prompt"
     },
     {
-      "type": "prompt",
       "alignment": "left",
       "newline": true,
       "segments": [
         {
-          "type": "path",
-          "style": "plain",
           "foreground": "lightWhite",
           "properties": {
-            "style": "full",
-            "prefix": "<red>┖[</>",
-            "postfix": "<red>]></>"
-          }
+            "style": "full"
+          },
+          "style": "plain",
+          "template": "<red>\u2516[</>{{ .Path }}<red>]></>",
+          "type": "path"
         }
-      ]
+      ],
+      "type": "prompt"
     }
   ],
-  "final_space": true
+  "final_space": true,
+  "version": 2
 }
