@@ -1,0 +1,107 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "console_title_template": "{{.HostName}}",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "red",
+          "template": "\u250f["
+        },
+        {
+          "type": "os",
+          "style": "plain",
+          "foreground": "white",
+          "template": "{{ if .WSL }}WSL at {{ end }}{{.Icon}} "
+        },
+        {
+          "foreground": "white",
+          "properties": {
+            "display_host": false
+          },
+          "style": "plain",
+          "template": "{{ if .SSHSession }}\uf817 {{ end }}{{ .UserName }}",
+          "type": "session"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "red",
+          "template": "]"
+        },
+        {
+          "foreground": "lightGreen",
+          "style": "powerline",
+          "template": "<red>[</>{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}} \uF692 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }}<red>]</>",
+          "properties": {
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          },
+          "type": "git"
+        },
+        {
+          "foreground": "lightGreen",
+          "properties": {
+            "display_mode": "environment"
+          },
+          "style": "plain",
+          "template": "<red>[</>{{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}<red>]</>",
+          "type": "python"
+        },
+        {
+          "foreground": "white",
+          "style": "plain",
+          "template": "<red>[</>\uf0e7<red>]</>",
+          "type": "root"
+        },
+        {
+          "foreground": "darkGray",
+          "style": "powerline",
+          "template": "<red>[</>{{ .FormattedMs }}<red>]</>",
+          "properties": {
+            "threshold": 50,
+            "style": "round"
+          },
+          "type": "executiontime"
+        },
+        {
+          "foreground": "red",
+          "style": "plain",
+          "template": "[{{ if gt .Code 0 }}\uf1e2 {{ .Meaning }}{{ else }}\uf42e{{ end }}]",
+          "type": "exit"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "lightWhite",
+          "properties": {
+            "style": "full",
+            "mapped_locations": {
+              "C:\\Projects\\csharp": "\uf81a:",
+              "C:\\Projects\\gfx": "\uf03e:",
+              "C:\\Projects\\lua": "\ue620:",
+              "C:\\Projects\\minecraft": "\uf872:",
+              "C:\\Projects\\misc": "\ue796:",
+              "C:\\Projects\\php": "\ue73d:",
+              "C:\\Projects\\python": "\uf81f:"
+            }
+          },
+          "style": "plain",
+          "template": "<red>\u2516[</>{{ .Path }}<red>]></>",
+          "type": "path"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "final_space": true,
+  "version": 2
+}
